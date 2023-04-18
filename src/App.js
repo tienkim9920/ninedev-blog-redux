@@ -1,13 +1,18 @@
-import './App.css';
-import { useSelector } from 'react-redux'
+import React, { useState, useCallback } from "react";
+import Blogs from "./Blogs";
+import Counter from "./Counter";
 
-function App() {
-  const counter = useSelector(state => state.counter.value);
+export default function App() {
+  const [blogs, setBlogs] = useState(['Articles']);
+
+  const addBlog = useCallback(() => {
+    setBlogs((blogs) => [...blogs, "New Blog"]);
+  }, []);
+
   return (
-    <div className="App">
-      {counter}
-    </div>
+    <>
+      <Blogs blogs={blogs} addBlog={addBlog} />
+      <Counter />
+    </>
   );
 }
-
-export default App;
