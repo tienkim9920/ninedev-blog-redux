@@ -1,15 +1,15 @@
 
 import React, { useState, useCallback } from 'react'
+import { useSelector } from 'react-redux';
 
 const storeSet = new Set();
 
 function Counter() {
     const [count, setCount] = useState(0);
 
-    const increase = useCallback(() => {
-        console.log(count)
-        setCount(count + 1);
-    }, []);
+    const counter = useSelector(state => state.counter.value);
+
+    const increase = useCallback(() => setCount(count + 1), []);
     
     const decrease = useCallback(() => setCount(count - 1), []);
 

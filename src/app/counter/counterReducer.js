@@ -13,7 +13,6 @@ const counterReducer = (state = initialData, actions) => {
 
         default: return state
     }
-
 }
 
 export default counterReducer;
